@@ -1,1 +1,29 @@
 /^$ 可以匹配一个空格
+
+
+一、使用 wc -L 命令
+wc -L（一定是大写L）可以获取到当前行的长度，因此对于单独行的字符串可以用这个简单的方法获取；另外 wc -l（一定是小写的l）则是获取当前字符串内容的行数
+echo "abc" | wc -L
+#结果为 3 表示长度
+echo "abc" | wc -l
+#结果为1 表示行数
+1
+2
+3
+4
+二、使用 expr length string 命令
+expr length "abc"
+#结果为 3
+1
+2
+三、通过 awk+length 的方式获取字符串长度
+echo "abc" | awk '{print length($0)}'
+#结果为 3
+1
+2
+四、awk获取域的个数
+echo "abc" |awk -F "" '{print NF}'
+1
+五、通过echo ${#varname}的方式
+name="abc" 
+echo ${#name}
